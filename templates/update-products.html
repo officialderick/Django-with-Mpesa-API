@@ -1,0 +1,23 @@
+{% extends 'master.html' %}
+{% block content %}
+	<h1 class="text-info text-center">Update products</h1>
+    <form class="row mx-auto col-10 col-md-8 col-lg-6 d-flex flex-column" method="post" action="/update/{{ product.id }}">
+    {% csrf_token %}
+        <label>
+            <input value="{{ product.name }}" class="form-control" required placeholder="product name" name="p-name" type="text">
+        </label>
+        <label>
+            <input value="{{ product.qtty }}" class="form-control" required placeholder="product qtty" name="p-qtty" type="text">
+        </label>
+        <label>
+            <input value="{{ product.price }}" class="form-control " required placeholder="product price" name="p-price" type="text">
+        </label>
+        <label>
+            <input value="{{ product.desc }}" class="form-control " required placeholder="product desc" name="p-desc" type="text">
+        </label>
+        <label>
+             <input class="form-control border-primary btn btn-outline-success " value="Update" type="submit">
+        </label>
+
+    </form>
+{% endblock %}
